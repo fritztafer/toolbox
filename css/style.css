@@ -1,0 +1,470 @@
+/* global */
+
+html, body {
+	background-color: #000000;
+	background-size: cover;
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	color: #ffffff
+}
+
+.light {
+	background-color: #ffffff;
+	color: #5c4747;
+}
+
+#lightButton {
+	margin-left: 10px;
+	vertical-align: 90%;
+}
+
+#banner {
+	background-color: #ffffff;
+	height: 40px;
+	width: 100%;
+}
+
+.bannerImg {
+	height: 40px;
+	width: 40px;
+}
+
+#active {
+	border-bottom: 4px solid yellow;
+}
+
+h2 {
+	margin-bottom: 5px;
+}
+
+h3 {
+	margin-bottom: 5px;
+	margin-top: 9px;
+}
+
+textarea, input, select, button, option {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+/* notepad */
+
+#notepad {
+	height: 75%;
+	text-align: center;
+}
+
+#notepadTitle {
+	width: 150px;
+}
+
+#textbox {
+	width: 98%;
+	height: 100%;
+	resize: none;
+	white-space: normal;
+	overflow: auto;
+}
+
+.notepadButton {
+	width: 50px;
+	margin-left: 50px;
+}
+
+#notepadWrapButton {
+	width: 75px;
+}
+
+/* calculator */
+
+#calculator {
+	width: 300px;
+	height: 500px;
+	text-align: center;
+}
+
+#numberbox {
+	width: 255px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	padding: 10px;
+	text-align: center;
+}
+
+#cDisplay {
+	width: 222px;
+	height: 20px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	resize: none;
+	text-align: right;
+}
+
+.cButton {
+	width: 50px;
+	height: 50px;
+	margin: 5px;
+	font-size: 20px;
+}
+
+#cHistory {
+	width: 222px;
+	padding-left: 38px;
+	text-align: right;
+}
+
+/* findreplace */
+
+#findreplace {
+	height:75%;
+	text-align: center;
+}
+
+.frTextarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#frMenu {
+	vertical-align: top;
+	display: inline-block;
+	width: 100px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.frButton {
+	width: 50px;
+	margin-top: 40px;
+}
+
+#frContainer {
+	text-align: right;
+	width: 292px;
+}
+
+.frFindReplace {
+	width: 150px;
+	height: 16px;
+	resize: none;
+}
+
+/* reverser */
+
+#reverser {
+	height: 75%;
+	text-align: center;
+}
+
+.reverserTextarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#reverserMenu {
+	vertical-align: top;
+	display: inline-block;
+	width: 100px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.reverserButton {
+	width: 50px;
+	margin-top: 40px;
+}
+
+/* sorter */
+
+#sorter {
+	height: 75%;
+	text-align: center;
+}
+
+.sorterTextarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#sorterMenu {
+	width: 100px;
+	vertical-align: top;
+	display: inline-block;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#sorterOptions {
+	margin-top: 40px;
+	margin-right: 5px;
+	padding-left: 18px;
+	text-align: left;
+}
+
+.sorterButton {
+	width: 50px;
+	margin-top: 40px;
+}
+
+#sorterContainer {
+	text-align: right;
+	width: 292px;
+}
+
+#sorterDelimiter {
+	width: 150px;
+	height: 16px;
+	resize: none;
+}
+
+/* spacetool */
+#spacetool {
+	height: 75%;
+	text-align: center;
+}
+
+.spacetoolTextarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#spacetoolMenu {
+	vertical-align: top;
+	display: inline-block;
+	width: 100px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#spacetoolOptions {
+	margin-top: 40px;
+	margin-right: 5px;
+	padding-left: 25px;
+	text-align: left;
+}
+
+#spacetoolCustomChar {
+	height: 14px;
+	width: 30px;
+	resize: none;
+}
+
+.spacetoolButton {
+	width: 50px;
+	margin-top: 40px;
+}
+
+#spacetoolExtraOptions {
+	text-align: right;
+	width: 292px;
+}
+
+.spacetoolExtraOption {
+	width: 150px;
+	height: 16px;
+	resize: none;
+}
+
+/* textinfo */
+
+#textinfo {
+	height:75%;
+	text-align: center;
+}
+
+.textinfoTextarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#textinfoMenu {
+	vertical-align: top;
+	display: inline-block;
+	width: 100px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.textinfoButton {
+	width: 50px;
+	margin-top: 40px;
+}
+
+/* casetool */
+#casetool {
+	height: 75%;
+	text-align: center;
+}
+
+.ctTextarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#ctMenu {
+	vertical-align: top;
+	display: inline-block;
+	width: 100px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#ctOptions {
+	margin-top: 40px;
+	padding-left: 15px;
+	text-align: left;
+}
+
+.ctButton {
+	width: 50px;
+	margin-top: 40px;
+}
+
+/* formatter */
+#formatter {
+	height: 75%;
+	text-align: center;
+}
+
+.formatterTextarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#formatterMenu {
+	vertical-align: top;
+	display: inline-block;
+	width: 100px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.formatterButton {
+	width: 50px;
+	margin-top: 40px;
+}
+
+#formatterExtraOptions {
+	text-align: right;
+	width: 292px;
+}
+
+.formatterExtraOption {
+	width: 150px;
+	height: 16px;
+	resize: none;
+}
+
+/* timetool */
+
+/* request */
+.request-button-delete {
+	color:white;
+	background-color:red;
+}
+
+.request-button-reset {
+	color:white;
+	background-color:#ff9900;
+}
+
+.toolbox-request-input {
+	width: 327px;
+}
+
+.toolbox-request-adddel-button {
+	width: 20px;
+}
+
+/* .toolbox-request-button {} */
+
+.toolbox-request-buttons {
+	position:relative;
+	white-space: nowrap;
+}
+
+.toolbox-request-textarea {
+	width: 689px;
+	resize: vertical;
+}
+
+.toolbox-request-requests {
+	border: 3px solid #73AD21;
+	border-radius: 12px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.toolbox-request-responses {
+	border: 3px solid #73AD21;
+	border-radius: 12px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+/* #curlPopup {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0 4px 8px
+		rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+}
+
+#underPopup {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+} */
+
+
+/* jsprep */
+
+#jsprep {
+	height: 75%;
+	text-align: center;
+}
+
+.jpTextarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#jpMenu {
+	width: 100px;
+	vertical-align: top;
+	display: inline-block;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+#jpOptions {
+	margin-top: 40px;
+	margin-right: 5px;
+	padding-left: 18px;
+	text-align: left;
+}
+
+.jpButton {
+	width: 50px;
+	margin-top: 40px;
+}
