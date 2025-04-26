@@ -13,11 +13,11 @@ function notepadWrap() {
 	var wrapStatus = document.getElementById("notepadWrapButton").value;
 	if (wrapStatus == "Wrap: ON") {
 		document.getElementById("notepadWrapButton").value = "Wrap: OFF";
-		document.getElementById("textbox").style.whiteSpace = "nowrap";
+		document.getElementById("textbox").style.whiteSpace = "preserve nowrap";
 	}
 	if (wrapStatus == "Wrap: OFF") {
 		document.getElementById("notepadWrapButton").value = "Wrap: ON";
-		document.getElementById("textbox").style.whiteSpace = "normal";
+		document.getElementById("textbox").style.whiteSpace = "pre-wrap";
 	}
 }
 

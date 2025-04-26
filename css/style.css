@@ -63,7 +63,7 @@ textarea, input, select, button, option {
 	width: 98%;
 	height: 100%;
 	resize: none;
-	white-space: normal;
+	white-space: pre-wrap;
 	overflow: auto;
 }
 
