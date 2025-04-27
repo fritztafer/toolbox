@@ -12,20 +12,14 @@ function textinfo() {
 }
 
 function textinfoRun() {
-	var input = document.getElementById("textinfoInput").value,
+	let input = document.getElementById("textinfoInput").value,
 		characters = "Characters: " + input.length,
 		wordcount =  "Word Count: " + textinfoWordcount(input),
 		sentences =  "Sentences : " + textinfoSentences(input),
 		paragraphs = "Paragraphs: " + textinfoParagraphs(input),
 		wordOccur =  "Word Occur: " + textinfoWordOccur(input),
 		charOccur =  "Char Occur: " + textinfoCharOccur(input),
-		output = [
-		characters,
-		wordcount,
-		sentences,
-		paragraphs,
-		wordOccur,
-		charOccur];
+		output = [characters, wordcount, sentences, paragraphs, wordOccur, charOccur];
 	document.getElementById("textinfoOutput").value = output.join("\n");
 }
 
