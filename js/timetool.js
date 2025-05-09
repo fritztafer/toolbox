@@ -1,5 +1,8 @@
 function timetool() {
-	document.getElementById("timetool").innerHTML =		
+	document.getElementById("timetool").innerHTML =	
+		'<h2>Clock</h2>' +
+		'<h3 id="clock">00:00:00.00</h3>' +
+	
 		'<h2>Stopwatch</h2>' +
 		'<button id="startStopwatchButton">Start</button>' +
 		'<button id="stopStopwatchButton">Stop</button>' +
@@ -323,8 +326,27 @@ function timetool() {
 	ttRun();
 }
 
-
 function ttRun() {
+	// Clock Formatting
+	function pad(num, size) {
+		return num.toString().padStart(size, '0');
+	}
+	
+	// Clock Logic
+	function updateClock() {
+		const now = new Date();
+		const hours = pad(now.getHours(), 2);
+		const minutes = pad(now.getMinutes(), 2);
+		const seconds = pad(now.getSeconds(), 2);
+		const hundredths = pad(Math.floor(now.getMilliseconds() / 10), 2);
+	
+		const timeString = `${hours}:${minutes}:${seconds}.${hundredths}`;
+		document.getElementById('clock').textContent = timeString;
+	}
+	
+	// Clock Handler
+	setInterval(updateClock, 10);
+
 	// Stopwatch Variables
     let stopwatchStartTime;
     let stopwatchElapsedTime = 0;

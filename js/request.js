@@ -17,63 +17,8 @@ function sendReq() {
 
 		if (index !== "count") {
 			let [data, undefined] = gencURL(index);
-
-			getResponse = function(callback) {
-				var xhr = new XMLHttpRequest();
-
-				xhr.onreadystatechange = function() { // whats different handling stuff here VS a callback function?
-					if (xhr.readyState === 4 && xhr.status === 200) {
-						console.log("done!\n", xhr);
-						callback(xhr);
-					} else {
-						console.log("not done...\n", xhr);
-					};
-				};
-
-				xhr.open(data.method, data.url, true);
-				if (Object.keys(data.headers) != "") {
-					for (i in Object.keys(data.headers)) {
-						xhr.setRequestHeader(Object.keys(data.headers)[i], data.headers[Object.keys(data.headers)[i]]);
-					}
-				};
-				xhr.send(data.body);
-			};
-
-			 // callback is not being fed into this correctly
-
-			// https://stackoverflow.com/questions/5485495/how-can-i-take-advantage-of-callback-functions-for-asynchronous-xmlhttprequest
-			
-			/* let getData = (callback) => {
-				var xhr = new XMLHttpRequest();
-
-				xhr.addEventListener("readystatechange", () => {
-					if (xhr.readyState === 4 && xhr.status === 200) {
-						let response = xhr;
-						callback(undefined, response);
-					} else if (xhr.readyState === 4) {
-						callback("something wrong with the request", undefined); // is this description accurate?
-					} else {
-						callback("no response recieved", undefined); // is this description accurate?
-					};
-				});
-
-				xhr.open(data.method, data.url, true);
-
-				if (Object.keys(data.headers) != "") {
-					for (ii in Object.keys(data.headers)) {
-						xhr.setRequestHeader(Object.keys(data.headers)[ii], data.headers[Object.keys(data.headers)[ii]]);
-					}
-				};
-
-				xhr.send(data.body);
-			}; */
-			/* xhr.onload = function(){ // using addEventListener above is more customizable
-				// use callback to push response to an object when ready
-				console.log(xhr);
-			}; */ 
-
-			let newRep = Object.assign(document.createElement("div"),{id: "resNum-" + index});
-			newRep.setAttribute("class","toolbox-request-responses");
+			let responseDiv = Object.assign(document.createElement("div"),{id: "resText-' + index + '", innerHTML: "<h3>Response Text</h3>"});
+			let newRep = Object.assign(document.createElement("div"),{id: "resNum-" + index, className: "toolbox-request-responses"});
 			newRep.innerHTML =
 				'<div id="resHead-' + index + '">\n' +
 					'<h2 style="display:inline;">Response ' + String.fromCharCode(parseInt(index) + 65) + '</h2>\n' +
@@ -88,15 +33,37 @@ function sendReq() {
 					JSON.stringify(data.headers) + '<br>\n' +
 					'Body:\n' +
 					data.body + '\n' +
-				'</div>\n' +
-				'<div id="resText-' + index + '">\n' +
-					'<h3>Response Text</h3>\n' +
-					getResponse(resCb) + '\n' +
-				'</div>\n';
+				'</div>';
 
+			newRep.appendChild(responseDiv);
 			document.getElementById("resContainer").prepend(newRep);
-		} else {};
-	};
+
+			getResponse(function(xhr) {
+                responseDiv.innerHTML = "<h3>Response Text</h3><pre>" + xhr.responseText + "</pre>";
+            });
+
+			function getResponse(callback) {
+				var xhr = new XMLHttpRequest();
+
+				xhr.onreadystatechange = function() { // whats different handling stuff here VS a callback function?
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						console.log("done!\n", xhr);
+						callback(xhr);
+					} else {
+						console.log("not done...\n", xhr);
+					}
+				}
+
+				xhr.open(data.method, data.url, true);
+				if (Object.keys(data.headers) != "") {
+					for (i in Object.keys(data.headers)) {
+						xhr.setRequestHeader(Object.keys(data.headers)[i], data.headers[Object.keys(data.headers)[i]]);
+					}
+				}
+				xhr.send(data.body);
+			}
+		}
+	}
 }
 
 function resetAll() {}
