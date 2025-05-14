@@ -222,6 +222,7 @@ textarea, input, select, button, option {
 }
 
 /* spacetool */
+
 #spacetool {
 	height: 75%;
 	text-align: center;
@@ -297,6 +298,7 @@ textarea, input, select, button, option {
 }
 
 /* casetool */
+
 #casetool {
 	height: 75%;
 	text-align: center;
@@ -328,6 +330,7 @@ textarea, input, select, button, option {
 }
 
 /* formatter */
+
 #formatter {
 	height: 75%;
 	text-align: center;
@@ -365,7 +368,45 @@ textarea, input, select, button, option {
 
 /* timetool */
 
+/* hashtool */
+
+#hashtool {
+	height: 75%;
+	text-align: center;
+}
+
+.hashtool-textarea {
+	width: 40%;
+	height: 100%;
+	resize: none;
+}
+
+#hashtool-menu {
+	vertical-align: top;
+	display: inline-block;
+	width: 100px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.hashtool-button {
+	width: 50px;
+	margin-top: 40px;
+}
+
+#hashtool-options {
+	margin-top: 40px;
+	padding-left: 15px;
+	text-align: left;
+}
+
+#hashtool-extra {
+	text-align: right;
+	width: 364px;
+}
+
 /* request */
+
 .request-button-delete {
 	color:white;
 	background-color:red;

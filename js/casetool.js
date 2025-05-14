@@ -84,4 +84,5 @@ function ctClear() {
 	document.getElementById("ctUp").checked = false;
 	document.getElementById("ctDown").checked = false;
 	document.getElementById("ctTitle").checked = false;
+	document.getElementById("ctCamel").checked = false;
 }

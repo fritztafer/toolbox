@@ -23,6 +23,7 @@ function run() {
 		'<a href="/tool/spacetool.html"><img class="bannerImg" src="/img/spacetool.png" title="spacetool"></a>' +
 		'<a href="/tool/formatter.html"><img class="bannerImg" src="/img/formatter.png" title="formatter"></a>' +
 		'<a href="/tool/timetool.html"><img class="bannerImg" src="/img/timetool.png" title="timetool"></a>' +
+		'<a href="/tool/hashtool.html"><img class="bannerImg" src="/img/hashtool.png" title="hashtool"></a>' +
 		'<a href="/tool/request.html"><img class="bannerImg" src="/img/request.png" title="request"></a>' +
 		'<a href="/tool/jsprep.html"><img class="bannerImg" src="/img/jsprep.png" title="jsprep"></a>' +
 		'<button id="lightButton" onclick="lightMode();">Dark Mode Toggle</button>';
