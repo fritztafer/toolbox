@@ -1,3 +1,5 @@
+// timetool
+
 function timetool() {
 	document.getElementById("timetool").innerHTML =	
 		'<h2>Clock</h2>' +
