@@ -8,7 +8,7 @@ function textinfo() {
 			'<input class="textinfoButton" type="button" value="Run" onclick="textinfoRun()"><br>' +
 			'<input class="textinfoButton" type="button" value="Clear" onclick="textinfoClear()">' +
 		'</div>' +
-		'<textarea readonly id="textinfoOutput" class="textinfoTextarea" wrap="on"></textarea>';
+		'<pre id="textinfoOutput" style="white-space: pre-wrap;"></pre>';
 }
 
 function textinfoRun() {
@@ -20,7 +20,7 @@ function textinfoRun() {
 		wordOccur =  "Word Occur: " + textinfoWordOccur(input),
 		charOccur =  "Char Occur: " + textinfoCharOccur(input),
 		output = [characters, wordcount, sentences, paragraphs, wordOccur, charOccur];
-	document.getElementById("textinfoOutput").value = output.join("\n");
+	document.getElementById("textinfoOutput").textContent = output.join("\n");
 }
 
 function textinfoClear() {
@@ -72,21 +72,12 @@ function textinfoCharOccur(input) { // need to replace new line with \n and othe
 	for (char of input.split("")) {chars[char] = (chars[char] || 0) + 1;}
 	chars = textinfoOccurSort(chars);
 
-	// this is not working
-	// for (key of Object.keys(chars)) { 
-	//     if (/[\n\t\r\b\f\v\0]/.test(Object.keys(chars)[key])) {
-	//         Object.defineProperty(chars, char => escapeMap[char] || char,
-	//             Object.getOwnPropertyDescriptor(chars, Object.keys(chars)[key]));
-	//         delete chars[key];
-	//     }
-	// }
-
-	// .replace(/[\n\t\r\b\f\v\0]/g, char => escapeMap[char] || char)
-
-	for (char in chars) {
-		output += char + ": " + chars[char];
-		if (Object.keys(chars).indexOf(char) < Object.keys(chars).length - 1) {output += ", ";}
-	}
+    let keys = Object.keys(chars);
+    keys.forEach((char, i) => {
+        let displayChar = escapeMap[char] || char;
+        output += `${displayChar}: ${chars[char]}`;
+        if (i < keys.length - 1) output += ", ";
+    });
 
 	return output;
 }

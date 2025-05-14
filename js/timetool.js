@@ -333,7 +333,7 @@ function ttRun() {
 	function pad(num, size) {
 		return num.toString().padStart(size, '0');
 	}
-	
+
 	// Clock Logic
 	function updateClock() {
 		const now = new Date();
@@ -345,7 +345,7 @@ function ttRun() {
 		const timeString = `${hours}:${minutes}:${seconds}.${hundredths}`;
 		document.getElementById('clock').textContent = timeString;
 	}
-	
+
 	// Clock Handler
 	setInterval(updateClock, 10);
 
@@ -359,8 +359,8 @@ function ttRun() {
     let specificTimeInterval;
 
     // Timer for Duration Variables
+	let duration = 0;
     let durationStartTime;
-    let durationElapsedTime = 0;
     let durationInterval;
 
     // Stopwatch Elements
@@ -371,20 +371,12 @@ function ttRun() {
 
     // Timer for Specific Time Elements
     const specificTimeElement = document.getElementById('specificTime');
-    // const specificTimeInput = document.getElementById('specificTimeInput');
-	const getHourSpecific = ''; // defined in function
-	const getMinuteSpecific = '';
-	const getSecondSpecific = '';
     const startSpecificTimeButton = document.getElementById('startSpecificTimeButton');
     const stopSpecificTimeButton = document.getElementById('stopSpecificTimeButton');
     const resetSpecificTimeButton = document.getElementById('resetSpecificTimeButton');
 
     // Timer for Duration Elements
     const durationElement = document.getElementById('duration');
-    // const durationInput = document.getElementById('durationInput');
-	const getHourDuration = ''; // defined in function
-	const getMinuteDuration = '';
-	const getSecondDuration = '';
     const startDurationButton = document.getElementById('startDurationButton');
     const stopDurationButton = document.getElementById('stopDurationButton');
     const resetDurationButton = document.getElementById('resetDurationButton');
@@ -544,26 +536,8 @@ function ttRun() {
       if (validateTime(inputDuration)) {
         const [hours, minutes, seconds] = inputDuration.split(':').map(Number);
         duration = (hours * 3600 + minutes * 60 + seconds) * 1000;
-		/*
-		const currentTime = new Date();
-        const duration = new Date(
-          currentTime.getFullYear(),
-          currentTime.getMonth(),
-          currentTime.getDate(),
-          hours,
-          minutes,
-          seconds
-        );
-		*/
-
         durationStartTime = Date.now();
         durationElapsedTime = 0;
-
-        /* if (duration === 0) {
-          alert('Please enter a positive duration.');
-          return;
-        } */
-
         durationInterval = setInterval(updateDuration, 10);
         toggleDurationButtons(true);
       } else {
@@ -573,6 +547,7 @@ function ttRun() {
 
     // Stop Timer for Duration
     function stopDuration() {
+	  durationElement.textContent = '00:00:00.00';
       clearInterval(durationInterval);
       toggleDurationButtons(false);
     }
@@ -580,7 +555,6 @@ function ttRun() {
     // Reset Timer for Duration
     function resetDuration() {
       clearInterval(durationInterval);
-      // durationInput.value = '';
 	  document.getElementById('getHourDuration').value = '00';
 	  document.getElementById('getMinuteDuration').value = '00';
 	  document.getElementById('getSecondDuration').value = '00';
@@ -591,12 +565,13 @@ function ttRun() {
     // Update Timer for Duration Display
     function updateDuration() {
       const currentTime = Date.now();
-      durationElapsedTime = currentTime - durationStartTime;
+      const elapsedTime = currentTime - durationStartTime;
+	  const remainingTime = Math.max(duration - elapsedTime, 0);
 
-      const milliseconds = Math.floor((durationElapsedTime % 1000) / 10);
-      const seconds = Math.floor((durationElapsedTime / 1000) % 60);
-      const minutes = Math.floor((durationElapsedTime / 60000) % 60);
-      const hours = Math.floor(durationElapsedTime / 3600000);
+      const milliseconds = Math.floor((remainingTime % 1000) / 10);
+      const seconds = Math.floor((remainingTime / 1000) % 60);
+      const minutes = Math.floor((remainingTime / 60000) % 60);
+      const hours = Math.floor(remainingTime / 3600000);
 
       const displayMilliseconds = milliseconds.toString().padStart(2, '0');
       const displaySeconds = seconds.toString().padStart(2, '0');
@@ -605,7 +580,7 @@ function ttRun() {
 
       durationElement.textContent = `${displayHours}:${displayMinutes}:${displaySeconds}.${displayMilliseconds}`;
 
-      if (durationElapsedTime >= duration) {
+      if (remainingTime <= 0) {
         clearInterval(durationInterval);
         durationElement.textContent = '00:00:00.00';
         toggleDurationButtons(false);

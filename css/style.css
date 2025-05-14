@@ -401,8 +401,8 @@ textarea, input, select, button, option {
 }
 
 #hashtool-extra {
-	text-align: right;
-	width: 364px;
+	text-align: left;
+	padding-left: 133px;
 }
 
 /* request */

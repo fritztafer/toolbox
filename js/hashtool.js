@@ -23,6 +23,7 @@ function hashtool() {
         const file = e.target.files[0];
         if (file) {
             document.getElementById("hashtool-input").value = "";
+            document.getElementById("hashtool-output").value = "";
             const hash = await hashFile(file);
             document.getElementById("hashtool-output").value = hash;
         }
@@ -31,6 +32,7 @@ function hashtool() {
 
 async function hashtoolRun() {
     document.getElementById("hashtool-fileInput").value = "";
+    document.getElementById("hashtool-output").value = "";
     document.getElementById("hashtool-output").value = await hashText(document.getElementById("hashtool-input").value);
 }
 
