@@ -10,8 +10,7 @@ function run() {
 	let toolDiv = Object.assign(document.createElement("div"),{id:shortname});
 	let toolRun = Object.assign(document.createElement("script"),{innerHTML:shortname + "();"});
 	let banner = Object.assign(document.createElement("div"),{id:"banner"});
-
-	tools = // used by index.html. Add new tools here, eventually use php to pull names of .html files
+	let tools = // Add new tools here, eventually use php and fetch names of .html files
 		'<a href="/index.html"><img class="bannerImg" src="/img/index.png" title="index"></a>' +
 		'<a href="/tool/notepad.html"><img class="bannerImg" src="/img/notepad.png" title="notepad"></a>' +
 		'<a href="/tool/calculator.html"><img class="bannerImg" src="/img/calculator.png" title="calculator"></a>' +
