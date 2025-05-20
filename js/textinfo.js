@@ -8,7 +8,7 @@ function textinfo() {
 			'<input class="textinfoButton" type="button" value="Run" onclick="textinfoRun()"><br>' +
 			'<input class="textinfoButton" type="button" value="Clear" onclick="textinfoClear()">' +
 		'</div>' +
-		'<pre id="textinfoOutput" style="white-space: pre-wrap;"></pre>';
+		'<textarea id="textinfoOutput" class="textinfoTextarea" style="white-space: pre-wrap;"></textarea>';
 }
 
 function textinfoRun() {
@@ -20,7 +20,7 @@ function textinfoRun() {
 		wordOccur =  "Word Occur: " + textinfoWordOccur(input),
 		charOccur =  "Char Occur: " + textinfoCharOccur(input),
 		output = [characters, wordcount, sentences, paragraphs, wordOccur, charOccur];
-	document.getElementById("textinfoOutput").textContent = output.join("\n");
+	document.getElementById("textinfoOutput").value = output.join("\n");
 }
 
 function textinfoClear() {
