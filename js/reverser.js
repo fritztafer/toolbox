@@ -12,12 +12,7 @@ function reverser() {
 }
 
 function reverserRun() {
-	var input = document.getElementById("reverserInput").value;
-	var toArray = input.split("");
-	var reverse = toArray.reverse();
-	var output = reverse.join("");
-
-	document.getElementById("reverserOutput").value = output;
+	document.getElementById("reverserOutput").value = document.getElementById("reverserInput").value.split("").reverse().join("");;
 }
 
 function reverserClear() {

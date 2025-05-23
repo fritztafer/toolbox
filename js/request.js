@@ -3,80 +3,79 @@
 function request() {
 	document.getElementById("request").innerHTML =
 		`
-		<div id="request">
-			<div id="requests" style="margin-left:20px;overflow-y:auto;height:800px;width:760px;display:inline-block;">
-				<span style="background-color:black;position:-webkit-sticky;position:sticky;top:0px;z-index:999;padding-top:10px;padding-bottom:10px;padding-right:10px;margin-left:10px;">
-					<h2 style="display:inline;">Requests</h2>
-					<button onclick="addReq()">Add request</button>
-					<span class="toolbox-request-buttons" style="margin-left:280px;">
-						<button onclick="deleteAll()" class="request-button-delete">Delete all</button>
-						<button class="request-button-reset" onclick="resetAll()">Reset all</button>
-						<button onclick="sendReq()" style="background-color:green;color:white;">Send requests</button>
-					</span>
+		<div id="requests" style="margin-left:20px;overflow-y:auto;height:800px;width:760px;display:inline-block;">
+			<span style="background-color:black;position:-webkit-sticky;position:sticky;top:0px;z-index:999;padding-top:10px;padding-bottom:10px;padding-right:10px;margin-left:10px;">
+				<h2 style="display:inline;">Requests</h2>
+				<button onclick="addReq()">Add request</button>
+				<span class="toolbox-request-buttons" style="margin-left:280px;">
+					<button onclick="deleteAll()" class="request-button-delete">Delete all</button>
+					<button class="request-button-reset" onclick="resetAll()">Reset all</button>
+					<button onclick="sendReq()" style="background-color:green;color:white;">Send requests</button>
 				</span>
-				<div id="reqNum-0" class="toolbox-request-requests">
-					<div id="reqHeader-0">
-						<h2 style="display:inline;">Request A</h2>
-					</div>
-					<div id="reqRequired-0">
-						<h3>Method & URL</h3>
-						<select id="reqMethod-0" class="toolbox-select" style="width:85px">
-							<option value="GET">GET</option>
-							<option value="POST">POST</option>
-							<option value="PUT">PUT</option>
-							<option value="DELETE">DELETE</option>
-							<option value="PATCH">PATCH</option>
-							<option value="HEAD">HEAD</option>
-							<option value="OPTIONS">OPTIONS</option>
-							<option value="CONNECT">CONNECT</option>
-							<option value="TRACE">TRACE</option>
-						</select>
-						<input type="url" placeholder="url" id="reqURL-0" class="toolbox-request-input" value="" style="width:600px">
-					</div>
-					<div id="reqParams-0">
-						<h3>Parameters</h3>
-						<div id="reqParam-0,0">
-							<button type="button" class="toolbox-request-adddel-button" onclick="addParam(0)">+</button>
-							<input type="" placeholder="key" id="reqParamKey-0,0" class="toolbox-request-input" value="">
-							<input type="" placeholder="value" id="reqParamValue-0,0" class="toolbox-request-input" value="">
-						</div>
-					</div>
-					<div id="reqHeads-0">
-						<h3>Headers</h3>
-						<div id="reqHead-0,0">
-							<button type="button" class="toolbox-request-adddel-button" onclick="addHead(0)">+</button>
-							<input type="" placeholder="key" id="reqHeadKey-0,0" class="toolbox-request-input" value="">
-							<input type="" placeholder="value" id="reqHeadValue-0,0" class="toolbox-request-input" value="">
-						</div>
-					</div>
-					<div id="reqBody-0">
-						<h3>Request Body</h3>
-						<textarea placeholder="json data" id="reqInput-0" class="toolbox-request-textarea" value=""></textarea>
-					</div>
-					<div id="reqDelay-0" style="display:inline;">
-						<h3>Delay (ms)</h3>
-						<input placeholder="0" id="reqTime-0" class="toolbox-request-input" value="" style="width:140px;">
-					</div>
-					<span class="toolbox-request-buttons" style="margin-left:320px;">
-						<button class="request-button-delete" onclick="delReq(0)">Delete</button>
-						<button class="request-button-reset" onclick="resetReq(0)">Reset</button>
-						<button onclick="curlPopup(0)">Generate cURL</button>
-					</span>
+			</span>
+			<div id="reqNum-0" class="toolbox-request-requests">
+				<div id="reqHeader-0">
+					<h2 style="display:inline;">Request A</h2>
 				</div>
-			</div>
-			<span style="margin-left:200px;"></span>
-			<div id="responses" style="overflow-y:auto;height:800px;width:739px;display:inline-block">
-				<span style="background-color:black;position:-webkit-sticky;position:sticky;top:0px;z-index:999;padding-top:10px;padding-bottom:10px;padding-right:10px;margin-left:10px;">
-					<h2 style="display:inline;">Responses</h2>
+				<div id="reqRequired-0">
+					<h3>Method & URL</h3>
+					<select id="reqMethod-0" class="toolbox-select" style="width:85px">
+						<option value="GET">GET</option>
+						<option value="POST">POST</option>
+						<option value="PUT">PUT</option>
+						<option value="DELETE">DELETE</option>
+						<option value="PATCH">PATCH</option>
+						<option value="HEAD">HEAD</option>
+						<option value="OPTIONS">OPTIONS</option>
+						<option value="CONNECT">CONNECT</option>
+						<option value="TRACE">TRACE</option>
+					</select>
+					<input type="url" placeholder="url" id="reqURL-0" class="toolbox-request-input" value="" style="width:600px">
+				</div>
+				<div id="reqParams-0">
+					<h3>Parameters</h3>
+					<div id="reqParam-0,0">
+						<button type="button" class="toolbox-request-adddel-button" onclick="addParam(0)">+</button>
+						<input type="" placeholder="key" id="reqParamKey-0,0" class="toolbox-request-input" value="">
+						<input type="" placeholder="value" id="reqParamValue-0,0" class="toolbox-request-input" value="">
+					</div>
+				</div>
+				<div id="reqHeads-0">
+					<h3>Headers</h3>
+					<div id="reqHead-0,0">
+						<button type="button" class="toolbox-request-adddel-button" onclick="addHead(0)">+</button>
+						<input type="" placeholder="key" id="reqHeadKey-0,0" class="toolbox-request-input" value="">
+						<input type="" placeholder="value" id="reqHeadValue-0,0" class="toolbox-request-input" value="">
+					</div>
+				</div>
+				<div id="reqBody-0">
+					<h3>Request Body</h3>
+					<textarea placeholder="json data" id="reqInput-0" class="toolbox-request-textarea" value=""></textarea>
+				</div>
+				<div id="reqDelay-0" style="display:inline;">
+					<h3>Delay (ms)</h3>
+					<input placeholder="0" id="reqTime-0" class="toolbox-request-input" value="" style="width:140px;">
+				</div>
+				<span class="toolbox-request-buttons" style="margin-left:320px;">
+					<button class="request-button-delete" onclick="delReq(0)">Delete</button>
+					<button class="request-button-reset" onclick="resetReq(0)">Reset</button>
+					<button onclick="curlPopup(0)">Generate cURL</button>
 				</span>
-				<span id="resContainer"></span>
 			</div>
+		</div>
+		<span style="margin-left:200px;"></span>
+		<div id="responses" style="overflow-y:auto;height:800px;width:739px;display:inline-block">
+			<span style="background-color:black;position:-webkit-sticky;position:sticky;top:0px;z-index:999;padding-top:10px;padding-bottom:10px;padding-right:10px;margin-left:10px;">
+				<h2 style="display:inline;">Responses</h2>
+			</span>
+			<span id="resContainer"></span>
 		</div>
 		`
 }
 
 // active elements with dynamic quantities are tracked here until request is prepared
 var active = {"requests":{[0]:{"parameters":{[0]:{},"count":0},"headers":{[0]:{},"count":0}},"count":0}};
+var responseIndex = 0; // iterable to provide more functinality in responses
 
 function sendReq() {
 	for (request in Object.keys(active.requests)) {
@@ -84,14 +83,14 @@ function sendReq() {
 
 		if (index !== "count") {
 			let [data, undefined] = gencURL(index);
-			let responseDiv = Object.assign(document.createElement("div"),{id: "resText-" + index, innerHTML: "<h3>Response Text</h3><pre>Waiting...</pre>"});
-			let newRep = Object.assign(document.createElement("div"),{id: "resNum-" + index, className: "toolbox-request-responses"});
+			let responseDiv = Object.assign(document.createElement("div"),{id: "resText-" + index + "-" + responseIndex, innerHTML: "<h3>Response Text</h3><pre>Waiting...</pre>"});
+			let newRep = Object.assign(document.createElement("div"),{id: "resNum-" + index + "-" + responseIndex, className: "toolbox-request-responses"});
 
 			newRep.innerHTML =
-				'<div id="resHead-' + index + '">' +
+				'<div id="resHead-' + index + '-' + responseIndex + '">' +
 					'<h2 style="display:inline;">Response ' + String.fromCharCode(parseInt(index) + 65) + '</h2>' +
 				'</div>' +
-				'<div id="resInfo-' + index + '">' +
+				'<div id="resInfo-' + index + '-' + responseIndex + '">' +
 					'<h3>Request Info</h3>' +
 					'Date & Time: ' +
 					new Date().toLocaleString() + ` (${data.delay} ms delay)` + '<br>' +
@@ -111,7 +110,10 @@ function sendReq() {
 					responseDiv.innerHTML = 
 						`
 						<h3>Response Text</h3>
-						<pre>${JSON.stringify(JSON.parse(xhr.responseText), null, 2)}</pre>
+						<button onclick="copyToCB(document.querySelector('#resText-${index}-${responseIndex}').lastElementChild);">Copy</button>
+						<button onclick="prettify(document.querySelector('#resText-${index}-${responseIndex}').lastElementChild);">Prettify</button>
+						<button onclick="minify(document.querySelector('#resText-${index}-${responseIndex}').lastElementChild);">Minify</button>
+						<pre>${xhr.responseText}</pre>
 						`
 				});
 			}, data.delay);
@@ -123,6 +125,7 @@ function sendReq() {
 					if (xhr.readyState === 4 && xhr.status === 200) {
 						console.log("done!\n", xhr);
 						callback(xhr);
+						responseIndex += 1;
 					} else {
 						console.log("not done...\n", xhr);
 					}
@@ -217,8 +220,8 @@ function curlPopup(request) {
 			id:"curlPopup-" + request,
 			style:"margin-top: 9px;",
 			innerHTML:
-				`<div id="curlCommand-${request}">${gencURL(request)[1]}</div><br>
-				<button onclick="copyToCB(${request});">Copy</button>
+				`<div id="curlCommand-${request}">${gencURL(request)[1].trim()}</div><br>
+				<button onclick="copyToCB(document.querySelector('#curlCommand-${request}'));">Copy</button>
 				<button onclick="curlPopupClose(${request});">Close</button>`
 		});
 
@@ -233,13 +236,21 @@ function curlPopupClose(request) {
 	document.getElementById("curlPopup-" + request).remove();
 }
 
-function copyToCB(request) {
+function copyToCB(element) {
   window.getSelection().removeAllRanges();
   let range = document.createRange();
-  range.selectNode(document.getElementById("curlCommand-" + request));
+  range.selectNode(element);
   window.getSelection().addRange(range);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
+}
+
+function prettify(element) {
+	element.innerText = JSON.stringify(JSON.parse(element.innerText), null, 2);
+}
+
+function minify(element) {
+	element.innerText = JSON.stringify(JSON.parse(element.innerText));
 }
 
 function gencURL(request) {
