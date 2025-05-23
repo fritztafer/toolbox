@@ -75,7 +75,6 @@ function request() {
 
 // active elements with dynamic quantities are tracked here until request is prepared
 var active = {"requests":{[0]:{"parameters":{[0]:{},"count":0},"headers":{[0]:{},"count":0}},"count":0}};
-var responseIndex = 0; // iterable to provide more functinality in responses
 
 function sendReq() {
 	for (request in Object.keys(active.requests)) {
@@ -83,14 +82,14 @@ function sendReq() {
 
 		if (index !== "count") {
 			let [data, undefined] = gencURL(index);
-			let responseDiv = Object.assign(document.createElement("div"),{id: "resText-" + index + "-" + responseIndex, innerHTML: "<h3>Response Text</h3><pre>Waiting...</pre>"});
-			let newRep = Object.assign(document.createElement("div"),{id: "resNum-" + index + "-" + responseIndex, className: "toolbox-request-responses"});
+			let responseDiv = Object.assign(document.createElement("div"),{id: "resText-" + index, innerHTML: "<h3>Response Text</h3><pre>Waiting...</pre>"});
+			let newRep = Object.assign(document.createElement("div"),{id: "resNum-" + index, className: "toolbox-request-responses"});
 
 			newRep.innerHTML =
-				'<div id="resHead-' + index + '-' + responseIndex + '">' +
+				'<div id="resHead-' + index + '">' +
 					'<h2 style="display:inline;">Response ' + String.fromCharCode(parseInt(index) + 65) + '</h2>' +
 				'</div>' +
-				'<div id="resInfo-' + index + '-' + responseIndex + '">' +
+				'<div id="resInfo-' + index + '">' +
 					'<h3>Request Info</h3>' +
 					'Date & Time: ' +
 					new Date().toLocaleString() + ` (${data.delay} ms delay)` + '<br>' +
@@ -110,11 +109,11 @@ function sendReq() {
 					responseDiv.innerHTML = 
 						`
 						<h3>Response Text</h3>
-						<button onclick="copyToCB(document.querySelector('#resText-${index}-${responseIndex}').lastElementChild);">Copy</button>
-						<button onclick="prettify(document.querySelector('#resText-${index}-${responseIndex}').lastElementChild);">Prettify</button>
-						<button onclick="minify(document.querySelector('#resText-${index}-${responseIndex}').lastElementChild);">Minify</button>
+						<button onclick="copyToCB(document.querySelector('#resText-${index}').lastElementChild);">Copy</button>
+						<button onclick="prettify(document.querySelector('#resText-${index}').lastElementChild);">Prettify</button>
+						<button onclick="minify(document.querySelector('#resText-${index}').lastElementChild);">Minify</button>
 						<pre>${xhr.responseText}</pre>
-						`
+						`;
 				});
 			}, data.delay);
 
@@ -125,7 +124,6 @@ function sendReq() {
 					if (xhr.readyState === 4 && xhr.status === 200) {
 						console.log("done!\n", xhr);
 						callback(xhr);
-						responseIndex += 1;
 					} else {
 						console.log("not done...\n", xhr);
 					}
