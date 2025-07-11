@@ -3,7 +3,7 @@
 function run() {
 	let url = window.location.pathname;
 	let shortname = url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf("."));
-	if (shortname == "/") {shortname = "index";}
+	if (shortname == "/") shortname = "index";
 
 	let toolScript = Object.assign(document.createElement("script"),{src:"/js/" + shortname + ".js"});
 	let toolTitle = Object.assign(document.createElement("h1"),{innerText:shortname});
