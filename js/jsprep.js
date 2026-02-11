@@ -8,6 +8,9 @@ function jsprep() {
 			'<div id="jpOptions">' +
 				'<input type="radio" id="jpPrep" name="jpDirection" value="Prep"><label for="Prep">Prep</label><br>' +
 				'<input type="radio" id="jpParse" name="jpDirection" value="Parse"><label for="Parse">Parse</label><br>' +
+				'<br>' +
+				'Indent:' +
+				'<textarea id="jpIndent" style="resize: none; width: 48px; height: 18px;"></textarea>' +
 			'</div>' +
 			'<input class="jpButton" type="button" value="Run" onclick="jpRun()"><br>' +
 			'<input class="jpButton" type="button" value="Clear" onclick="jpClear()">' +
@@ -17,6 +20,7 @@ function jsprep() {
 
 function jpRun() {
 	var input = document.getElementById("jpInput").value;
+	var indent = document.getElementById("jpIndent").value;
 	var output = "";
 	var temp = "";
 	var t = "";
@@ -30,17 +34,17 @@ function jpRun() {
 			
 			if (r > i) {
 				temp = input.substring(i, r);
-				t = temp.substring(0, temp.lastIndexOf(/\t|    |  /) + 1);
+				t = temp.substring(0, temp.lastIndexOf(indent) + 1);
 				output += temp.replace(t, t + "'");
 				i = r;
 			} else if (r <= i) {
 				temp = input.substring(i, l);
-				t = temp.substring(0, temp.lastIndexOf(/\t|    |  /) + 1);
-				output += temp.replace(t, t + "'") + "';";
+				t = temp.substring(0, temp.lastIndexOf(indent) + 1);
+				output += temp.replace(t, t + "'") + "'";
 				i = l;
 			}
 		}
-	output = output.replace(/\n/g, "' +\n").replace(/'' \+/g, "");
+		output = "[\n" + output.replace(/\n/g, "',\n") + "\n].join('')";
 
 	} else if (document.getElementById("jpParse").checked) {
 		while (i < l) {
@@ -52,13 +56,11 @@ function jpRun() {
 				output += temp.replace(t, t.substring(0, t.length - 1));
 				i = r;
 			} else if (r <= i) {
-				temp = input.substring(i, l).replace("';", "");
-				t = temp.substring(0, temp.indexOf("'") + 1);
-				output += temp.replace(t, t.substring(0, t.length - 1));
 				i = l;
+				continue
 			}
 		}
-	output = output.replace(/' \+/g, "");
+		output = output.replace(/',|'\n|\[\n/g, "");
 
 	} else {
 		output = "Select an operation";
