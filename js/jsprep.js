@@ -34,12 +34,12 @@ function jpRun() {
 			
 			if (r > i) {
 				temp = input.substring(i, r);
-				t = temp.substring(0, temp.lastIndexOf(indent) + 1);
+				t = temp.substring(0, temp.lastIndexOf(indent) + indent.length);
 				output += temp.replace(t, t + "'");
 				i = r;
 			} else if (r <= i) {
 				temp = input.substring(i, l);
-				t = temp.substring(0, temp.lastIndexOf(indent) + 1);
+				t = temp.substring(0, temp.lastIndexOf(indent) + indent.length);
 				output += temp.replace(t, t + "'") + "'";
 				i = l;
 			}
