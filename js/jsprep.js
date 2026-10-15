@@ -10,7 +10,7 @@ function jsprep() {
 				'<input type="radio" id="jpParse" name="jpDirection" value="Parse"><label for="Parse">Parse</label><br>' +
 				'<br>' +
 				'Indent:' +
-				'<textarea id="jpIndent" style="resize: none; width: 48px; height: 18px;"></textarea>' +
+				'<textarea id="jpIndent" style="resize: none; width: 48px; height: 18px;">    </textarea>' +
 			'</div>' +
 			'<input class="jpButton" type="button" value="Run" onclick="jpRun()"><br>' +
 			'<input class="jpButton" type="button" value="Clear" onclick="jpClear()">' +
@@ -74,4 +74,5 @@ function jpClear() {
 	document.getElementById("jpOutput").value = "";
 	document.getElementById("jpPrep").checked = false;
 	document.getElementById("jpParse").checked = false;
+	document.getElementById("jpIndent").value = "    ";
 }
